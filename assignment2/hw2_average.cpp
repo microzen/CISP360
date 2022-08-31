@@ -13,7 +13,7 @@ Program description: To calculate the average of 5 numbers.
 
 #include "iostream"
 using namespace std;
-int hw2_average(int argc, char const *argv[]) {
+int main(int argc, char const *argv[]) {
   // init, declare and assgin values
   double num1 = 28;
   double num2 = 32;
