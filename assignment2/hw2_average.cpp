@@ -1,4 +1,16 @@
 
+/*****************************************************
+Student name: Yezhi Wu
+Student ID: w1761432
+Course #: CISP360
+Section #: 25324 & 24499
+Instruction mode: Online or Hybrid
+*****************************************************
+Assignment #2 (ch2) - Average
+Source file name: hw2_average.cpp
+Program description: To calculate the average of 5 numbers.
+*****************************************************/
+
 #include "iostream"
 using namespace std;
 int hw2_average(int argc, char const *argv[]) {
