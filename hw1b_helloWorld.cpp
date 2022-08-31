@@ -1,7 +1,7 @@
 /*****************************************************
 Student name: Yezhi Wu
 Student ID: w1761432
-Course #: CISP360 
+Course #: CISP360
 Section #: 25324 & 24499
 Instruction mode: Online or Hybrid
 *****************************************************
@@ -13,9 +13,8 @@ Program description: This will display a “Hello World” message
 #include <iostream>
 using namespace std;
 
-//main function
-int main()
-{
-	cout << "Hello World!" << endl << endl;
-	return 0;
+// main function
+int hello() {
+  cout << "Hello World!" << endl << endl;
+  return 0;
 }
