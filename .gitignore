@@ -8,3 +8,4 @@
 .cache/
 replit.nix
 *.d
+main
