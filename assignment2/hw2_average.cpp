@@ -23,10 +23,10 @@ int main(int argc, char const *argv[]) {
 
   // output
   cout << "Number 1: " << num1 << endl;
-  cout << "Number 1: " << num2 << endl;
-  cout << "Number 1: " << num3 << endl;
-  cout << "Number 1: " << num4 << endl;
-  cout << "Number 1: " << num5 << endl;
+  cout << "Number 2: " << num2 << endl;
+  cout << "Number 3: " << num3 << endl;
+  cout << "Number 4: " << num4 << endl;
+  cout << "Number 5: " << num5 << endl;
   // avg
   double avg = (num1 + num2 + num3 + num4 + num5) / 5.0;
   cout << "Average: " << avg << endl;
