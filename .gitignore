@@ -9,3 +9,4 @@
 replit.nix
 *.d
 main
+.DS_Store
