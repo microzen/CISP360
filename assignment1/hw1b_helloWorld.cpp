@@ -14,7 +14,7 @@ Program description: This will display a “Hello World” message
 using namespace std;
 
 // main function
-int hello() {
+int main() {
   cout << "Hello World!" << endl << endl;
   return 0;
 }
