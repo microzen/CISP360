@@ -3,7 +3,9 @@ all: main clean-deps
 CXX = clang++
 override CXXFLAGS += -g -Wno-everything
 
-SRCS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.cpp' -print | sed -e 's/ /\\ /g')
+FIND = $(shell cat ./.cisp360project)
+
+SRCS = $(shell find $(FIND) -name '.ccls-cache' -type d -prune -o -type f -name '*.cpp' -print | sed -e 's/ /\\ /g')
 OBJS = $(SRCS:.cpp=.o)
 DEPS = $(SRCS:.cpp=.d)
 
