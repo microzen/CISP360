@@ -2,7 +2,7 @@
 *-debug
 .ccls-cache/**
 .ccls-cache/
-*.replit
+# *.replit
 *.out
 .cache/**
 .cache/
