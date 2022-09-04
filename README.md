@@ -1,0 +1,1 @@
+[Discussion Week 2 Lab 1&2](./week2/Discussion%202%20-%20CISP%20360.md)
