@@ -1,6 +1,6 @@
 # Chapter 1
 ---
-1. An error in a program that involves a violation of language rules will be detected at **Compile** time
+1. An error in a program that involves a violation of language rules will be detected at **Compile** time.
 2. Division by zero when the program is executing is an example of a **Run-Time** error.
 3. The purpose of testing a program with different combinations of data is to expose run-time and **Logical** errors.
 4. Replace the underlines with the words in parentheses that follow: The **Programmer** solves the **Problems** of a **User** by expressing an **Algorithm** in a **Programming Language** to make a **Program** that can run on a **Computer**. 
