@@ -23,7 +23,7 @@ public:
 class Circl : public Shape
 {
 public:
-    Circl(double radius = 0) : Shape(width, 0)
+    Circl(double radius = 0) : Shape(radius, 0)
     {
         if (radius <= 0)
             throw "Radius much bigger than 0.";
