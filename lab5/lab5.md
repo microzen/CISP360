@@ -1,6 +1,6 @@
 # Lab5
 
-# Note
+[Link to code](./population.cpp)
 
 ## Population
 
