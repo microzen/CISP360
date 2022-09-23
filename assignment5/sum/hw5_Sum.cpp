@@ -1,28 +1,44 @@
 #include <iostream>
+#include <time.h>
+#include <thread>
+#include <cerrno>
+
 using namespace std;
-int sequence(int number);
+
+long long sequence(int number);
 int inputNumber();
+
 int main(int argc, char const *argv[])
 {
-    /* your code */
+    int number;
+    long long result;
+    double seconds;
+    clock_t c; // clock 
+
+    number = inputNumber();
+
+    c = clock();
+    result = sequence(number);
+    c = clock() - c;
+
+    cout << "The sum form 1 to " << number << " is: " << result << endl;
+
+    cout << "Secends: " << ((float)c)/CLOCKS_PER_SEC << endl;
     return 0;
 }
 /// @brief a sequence to calculate 1 to a number.
 /// @param number a number that must greater than 0.
 /// @return result
-int sequence(int number)
+long long sequence(int number)
 {
     if (number < 0)
         throw "It can't be a negative number.";
     long long result = 0;
-    // int k = 1;
-    // long long h = number;
     // result = (h * (h + 1)) / 2;
-    // return result;
     for (size_t i = 1; i <= number; i++)
     {
         result += i;
-        /* code */
+        // this_thread::sleep_for(chrono::microseconds(1)); // simulated calcuations
     }
     return result;
 }
