@@ -7,23 +7,28 @@ using namespace std;
 
 long long sequence(int number);
 int inputNumber();
+void outputModule(long long result, clock_t cl);
 
 int main(int argc, char const *argv[])
 {
-    int number;
-    long long result;
+    int number; // user's input
+    long long result; // result of calcution
+    clock_t cl; // clock
     double seconds;
-    clock_t c; // clock 
 
-    number = inputNumber();
+    // Could you help me to finihed the input number moudle?
+    number = inputNumber(); // input a number
 
-    c = clock();
+    cl = clock(); // start time
     result = sequence(number);
-    c = clock() - c;
+    cl = clock() - cl; // end time
 
-    cout << "The sum form 1 to " << number << " is: " << result << endl;
+    // convert clock_t to secounds on the double type.
+    seconds = (static_cast<double>(cl)) / CLOCKS_PER_SEC;
 
-    cout << "Secends: " << ((float)c)/CLOCKS_PER_SEC << endl;
+    // Could you help me to finihed the ouput moudle? #TODO
+    outputModule(result, (static_cast<double>(cl)) / CLOCKS_PER_SEC);
+
     return 0;
 }
 /// @brief a sequence to calculate 1 to a number.
@@ -42,7 +47,7 @@ long long sequence(int number)
     }
     return result;
 }
-/// @brief ask user to input a number.
+/// @brief ask user to input a number and the number must greater than 0.
 /// @return input result
 int inputNumber()
 {
@@ -58,4 +63,12 @@ int inputNumber()
         }
         return num;
     } while (true);
+}
+
+/// @brief Output the resule and seconds that calcuated
+/// @param result The result of the sum
+/// @param secs Clock , secounds
+void outputModule(long long result, double secs)
+{
+    // #TODO
 }
