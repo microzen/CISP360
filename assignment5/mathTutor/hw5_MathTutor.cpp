@@ -6,10 +6,10 @@ using namespace std;
 /// @brief Options for user's choice.
 enum option
 {
-  MT_ADDTION = 1,
-  MT_SUBRACTION,
+  MT_ADDITION = 1,
+  MT_SUBTRACTION,
   MT_MULTIPLICATION,
-  MT_DIVISTION,
+  MT_DIVISION,
   MT_QUIT
 };
 const char operators[4] = {'+', '-', '*', '/'};
@@ -37,9 +37,9 @@ int main(int argc, char const *argv[])
   do
   {
     op = choiceModule();
-    if (op == MT_QUIT)
+    if (op == MT_QUIT) // if input is 5, quit
     {
-      cout << "Thank you...." << endl;
+      cout << "Thank you...." << endl; // #TODO output
       break;
     }
     checkModule(op);
@@ -51,26 +51,30 @@ int main(int argc, char const *argv[])
 option choiceModule()
 {
   int input;
+  cout << "\n\tMath Tutor Menu" << endl;
+  cout << "----------------------------" << endl;
+  cout << "1. Addition Problem" << endl;
+  cout << "2. Subtraction Problem" << endl;
+  cout << "3. Multiplication Problem" << endl;
+  cout << "4. Division Problem " << endl;
+  cout << "5. Quit Program " << endl;
+  cout << "----------------------------" << endl;
+
   do
   {
     input = 0;
-    cout << "\n\tMath Tutor Menu" << endl;
-    cout << "----------------------------" << endl;
-    cout << "1. Addition Problem" << endl;
-    cout << "2. Subtraction Problem" << endl;
-    cout << "3. Multiplication Problem" << endl;
-    cout << "4. Division Problem " << endl;
-    cout << "5. Quit Program " << endl;
-    cout << "----------------------------" << endl;
     cout << "Input your choice, then press [Enter]: ";
     cin >> input;
-    if (input >= 1 && input <= 4)
+    if (input >= 1 && input <= 5)
     {
+      // if input is 1-5, stop to loop
       break;
     }
     cout << "\nThe valid choices are 1-5. Pleace try again." << endl;
-    cin.clear();
+
+    cin.clear(); // clear input for the illegal number.
     cin.ignore(100, '\n');
+
   } while (true);
 
   return (option)input;
@@ -78,18 +82,21 @@ option choiceModule()
 
 bool checkModule(option mt_operator)
 {
+  // random numbers
   int num1 = rand() % 989 + 10;
   int num2 = rand() % 989 + 10;
-  int input;
-  double result = calculate(num1, num2, mt_operator);
-  // input and display
+
+  int user_answer; // answer
+  double result = calculate(num1, num2, mt_operator); // calculation
+
+  // input answer and display info
   cout << setw(5) << num1 << "\n"
        << operators[mt_operator - 1];
   cout << setw(4) << num2 << endl;
   cout << "----------------------------" << endl;
-  cin >> input;
+  cin >> user_answer;
 
-  if (result == input)
+  if (result == user_answer)
   {
     cout << "\nCongratulations! That's right." << result << endl;
     return true;
@@ -111,16 +118,16 @@ double calculate(double num1, double num2, option mt_operator)
   double result = 0;
   switch (mt_operator)
   {
-  case MT_ADDTION:
+  case MT_ADDITION:
     result = num1 + num2;
     break;
-  case MT_SUBRACTION:
+  case MT_SUBTRACTION:
     result = num1 - num2;
     break;
   case MT_MULTIPLICATION:
     result = num1 * num2;
     break;
-  case MT_DIVISTION:
+  case MT_DIVISION:
     if (num2 == 0)
     {
       throw "The denominator can not be zero.";
