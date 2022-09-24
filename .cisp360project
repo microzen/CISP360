@@ -1,1 +1,10 @@
-./lab5
+# UPDATE Fri 09/23/22: use `#` to ignore paths. 
+# ---
+
+# Lab ch:5
+# ./lab5
+
+# Assignment 5:
+./assignment5/mathTutor
+# ./assignment5/sum
+
