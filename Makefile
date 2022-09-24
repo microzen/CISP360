@@ -1,4 +1,4 @@
-all: main clean-deps
+all: main clean
 
 CXX = clang++
 override CXXFLAGS += -g -Wno-everything
@@ -28,7 +28,4 @@ main-debug: $(OBJS)
 	$(CXX) $(CXXFLAGS) -O0 $(OBJS) -o "$@"
 
 clean:
-	rm -f $(OBJS) $(DEPS) main
-
-clean-deps:
-	rm -f $(DEPS)
+	rm -f $(OBJS) $(DEPS)
