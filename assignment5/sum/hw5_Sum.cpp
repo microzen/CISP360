@@ -7,7 +7,7 @@ using namespace std;
 
 long long sequence(int number);
 int inputNumber();
-void outputModule(long long result, clock_t cl);
+void outputModule(long long result, double secs);
 
 int main(int argc, char const *argv[])
 {
