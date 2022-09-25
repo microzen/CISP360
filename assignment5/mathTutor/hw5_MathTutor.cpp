@@ -3,7 +3,7 @@
 #include <iomanip>
 using namespace std;
 
-/// @brief Options for user's choice.
+/// @brief Options of user's choice.
 enum option
 {
   MT_ADDITION = 1,
@@ -12,22 +12,13 @@ enum option
   MT_DIVISION,
   MT_QUIT
 };
-const char operators[4] = {'+', '-', '*', '/'};
 
-/// @brief to ask users for input a number and check the result;
-/// @return isCorret
-bool checkModule(option mt_operator);
+const int MAX_RAND = 999;
+const int MIN_RAND = 1;
 
-/// @brief to ask users for input to choose a option for calculate.
-/// @return 1. Addtion , 2. Subtraction, 3.,
 option choiceModule();
-
-/// @brief calculate 2 numbers by user's operator
-/// @param num1 number 1
-/// @param num2 number 2
-/// @param mt_operator operator
-/// @return Calculation result
-double calculate(double num1, double num2, option mt_operator);
+bool checkModule(option mt_operator);
+// double calculate(double num1, double num2, option mt_operator);
 
 int main(int argc, char const *argv[])
 {
@@ -39,7 +30,7 @@ int main(int argc, char const *argv[])
     op = choiceModule();
     if (op == MT_QUIT) // if input is 5, quit
     {
-      cout << "Thank you...." << endl; // #TODO output
+      cout << "Thank you for using Math Tutor." << endl; 
       break;
     }
     checkModule(op);
@@ -48,8 +39,11 @@ int main(int argc, char const *argv[])
   return 0;
 }
 
+/// @brief To ask users for input to choose a option for calculate.
+/// @return 1.Addition , 2.Subtraction, 3.Multiplication, 4.Division, 5.Quit,
 option choiceModule()
 {
+  // #TODO: choice module
   int input;
   cout << "\n\tMath Tutor Menu" << endl;
   cout << "----------------------------" << endl;
@@ -77,39 +71,34 @@ option choiceModule()
 
   } while (true);
 
-  return (option)input;
+  return static_cast<option>(input);
 }
 
-bool checkModule(option mt_operator)
+/// @brief Get a random divisible number
+/// @param number
+/// @return
+int randDivisible(int number)
 {
-  // random numbers
-  int num1 = rand() % 989 + 10;
-  int num2 = rand() % 989 + 10;
-
-  int user_answer; // answer
-  double result = calculate(num1, num2, mt_operator); // calculation
-
-  // input answer and display info
-  cout << setw(5) << num1 << "\n"
-       << operators[mt_operator - 1];
-  cout << setw(4) << num2 << endl;
-  cout << "----------------------------" << endl;
-  cin >> user_answer;
-
-  if (result == user_answer)
+  int divisibles[number / 2];
+  int langht = 0;
+  for (size_t i = MIN_RAND; i < number / 2; i++)
   {
-    cout << "\nCongratulations! That's right." << endl;
-    return true;
+    if (number % i == 0)
+    {
+      divisibles[langht] = i;
+      langht++;
+    }
   }
-  else
-  {
-    cout << "\nSorry, the correct answer is : " << result << endl;
-    return false;
-  }
-  cin.clear();
-  cin.ignore(100, '\n');
+  divisibles[++langht] = number;
+
+  return divisibles[rand() % langht];
 }
 
+/// @brief calculate 2 numbers by user's operator
+/// @param num1 number 1
+/// @param num2 number 2
+/// @param mt_operator operator
+/// @return Calculation result
 double calculate(double num1, double num2, option mt_operator)
 {
   // if (mt_operator == MT_QUIT)
@@ -139,4 +128,47 @@ double calculate(double num1, double num2, option mt_operator)
     break;
   }
   return result;
+}
+
+/// @brief To ask users to input a number then check the result;
+/// @return isCorret
+bool checkModule(option mt_operator)
+{
+  const char operators[4] = {'+', '-', '*', '/'};
+
+  // random numbers
+  int num1, num2;
+  int user_answer; // answer
+  srand(time(NULL));
+  num1 = rand() % (MAX_RAND - MIN_RAND) + MIN_RAND;
+  if (mt_operator == MT_DIVISION)
+  {
+    num2 = randDivisible(num1);
+  }
+  else
+  {
+    num2 = (rand() % (MAX_RAND - MIN_RAND)) + MIN_RAND;
+  }
+
+  double result = calculate(num1, num2, mt_operator); // calculation
+
+  // input answer and display info
+  cout << setw(5) << num1 << "\n"
+       << operators[mt_operator - 1];
+  cout << setw(4) << num2 << endl;
+  cout << "----------------------------" << endl;
+  cin >> user_answer;
+
+  if (result == user_answer)
+  {
+    cout << "\nCongratulations! That's right." << endl;
+    return true;
+  }
+  else
+  {
+    cout << "\nSorry, the correct answer is : " << result << endl;
+    return false;
+  }
+  cin.clear();
+  cin.ignore(100, '\n');
 }
