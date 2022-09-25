@@ -81,6 +81,7 @@ int randDivisible(int number)
 {
   int divisibles[number / 2];
   int langht = 0;
+  divisibles[langht++] = number;
   for (size_t i = MIN_RAND; i < number / 2; i++)
   {
     if (number % i == 0)
@@ -89,8 +90,6 @@ int randDivisible(int number)
       langht++;
     }
   }
-  divisibles[++langht] = number;
-
   return divisibles[rand() % langht];
 }
 
@@ -148,6 +147,10 @@ bool checkModule(option mt_operator)
   else
   {
     num2 = (rand() % (MAX_RAND - MIN_RAND)) + MIN_RAND;
+  }
+
+  if(num2 > num1){
+    throw "number 2 > 1";
   }
 
   double result = calculate(num1, num2, mt_operator); // calculation
