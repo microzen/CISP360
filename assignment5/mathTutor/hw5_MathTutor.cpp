@@ -70,7 +70,7 @@ option choiceModule()
       // if input is 1-5, stop to loop
       break;
     }
-    cout << "\nThe valid choices are 1-5. Pleace try again." << endl;
+    cout << "\nThe valid choices are 1-5. Please try again." << endl;
 
     cin.clear(); // clear input for the illegal number.
     cin.ignore(100, '\n');
@@ -98,7 +98,7 @@ bool checkModule(option mt_operator)
 
   if (result == user_answer)
   {
-    cout << "\nCongratulations! That's right." << result << endl;
+    cout << "\nCongratulations! That's right." << endl;
     return true;
   }
   else
