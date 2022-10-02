@@ -7,25 +7,28 @@ Instruction mode: Online
 *****************************************************
 Assignment #6 -  Future Value
 Source file name: hw6_FutureValue.cpp
-Program description: A program that prompts the user 
-to enter the account’s present value, monthly interest 
-rate, and the number of months that the money will be 
-left in the account. 
+Program description: A program that prompts the user
+to enter the account’s present value, monthly interest
+rate, and the number of months that the money will be
+left in the account.
 Then displays the account's future value
 *****************************************************/
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
-void futureValue(); //*** enter parameters ***
+double futureValue(int presentValue, double rate, int months); //*** enter parameters ***
 
-int main() {
-  int P, t;
+int main()
+{
+	int P, t;
 	double i, F;
 	char again;
-	
-	do {
-    // Ask user for information
+
+	do
+	{
+		// Ask user for information
 		cout << "\nWhat is the present value of the account? ";
 		cin >> P;
 
@@ -36,17 +39,16 @@ int main() {
 		cin >> t;
 
 		// Call function futureValue
-    //futureValue();  //<--- ***** Uncomment later ****
-		F = P * pow((1 + i), t); // used for test ** Delete **
+		F = futureValue(P, i, t); //<--- ***** Uncomment later ****
 
 		// Display result based on calculations
-    cout << "The account's future value is $" << F << "." << endl;
-		
-    // Ask user if they want to try other values
-    cout << "Want to try another set of values? (y = yes) : ";
+		cout << "The account's future value is $" << F << "." << endl;
+
+		// Ask user if they want to try other values
+		cout << "Want to try another set of values? (y = yes) : ";
 		cin >> again;
 
-	} while (again == 'y' || again == 'Y'); //Loop if user entered y or Y
+	} while (again == 'y' || again == 'Y'); // Loop if user entered y or Y
 	return 0;
 }
 
@@ -54,7 +56,7 @@ int main() {
 // Function that calculates the future value of an account
 // after a specified period of time
 //
-void futureValue(){ // **** add parameters & formula ****
-
-  
+double futureValue(int presentValue, double rate, int times)
+{ // **** interest rate ****
+	return presentValue * pow((1 + rate), times);
 }
