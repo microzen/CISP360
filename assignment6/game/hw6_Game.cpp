@@ -18,8 +18,9 @@ using namespace std;
 
 // ****computer picks a number *****
 int compChoice();
+
 // ****determine the winnner based on input ***
-void getWinner(int userChioce, int compChioce);
+void getWinner(int userChoice, int compChoice);
 
 const string names[3] = {"Rock", "Paper", "Scissors"};
 const string actions[3] = {"Smashes", "Wraps", "Cuts"};
@@ -30,7 +31,7 @@ int main()
 
 	do
 	{
-		// Computer chooses a number ******
+		// Computer chooses a number 
 		comp = compChoice();
 
 		// Prints Menu options for the game
@@ -47,13 +48,13 @@ int main()
 		cin >> choice;
 		if (choice < 1 || choice > 4)
 		{
-			cout << "User chioce must be between 1-4." <<endl;
+			cout << "User choice must be between 1-4." <<endl;
 		}
 		else if (choice != 4)
 		{
 			// Display each user's choice
-			cout << " You selected:\t" << names[choice - 1] << endl;
-			cout << " The computer selected:\t" << names[comp - 1] << endl;
+			cout << "You selected: " << names[choice - 1] << endl;
+			cout << "The computer selected: " << names[comp - 1] << endl;
 
 			// Call function to determine winner *****
 			getWinner(choice, comp);
@@ -71,20 +72,20 @@ int compChoice()
 }
 
 // Function to determine winner
-void getWinner(int userChioce, int compChioce)
+void getWinner(int userChoice, int compChoice)
 {
-	int user = userChioce;
-	int comp = compChioce;
+	int user = userChoice;
+	int comp = compChoice;
 	if (user < 1 || user > 3)
-		throw "User chioce must be between 1-3.";
+		throw "User choice must be between 1-3.";
 	if (comp < 1 || comp > 3)
-		throw "Computer chioce must be between 1-3.";
+		throw "Computer choice must be between 1-3.";
 	bool isWin = false;
 
 
 	if (user == comp)
 	{
-		cout << "\n No Winner!" << endl;
+		cout << "\nNo Winner!" << endl;
 		return;
 	}
 	if (user == 3 && comp == 1)
@@ -106,10 +107,10 @@ void getWinner(int userChioce, int compChioce)
 
 	if (isWin)
 	{
-		cout << "\n You win! " << names[user - 1] << " " << actions[user - 1] << " " << names[comp - 1] << endl;
+		cout << "\nYou win! " << names[user - 1] << " " << actions[user - 1] << " " << names[comp - 1] << endl;
 	}
 	else
 	{
-		cout << "\n Computer wins! " << names[comp - 1] << " " << actions[comp - 1] << " " << names[userChioce - 1] << endl;
+		cout << "\nComputer wins! " << names[comp - 1] << " " << actions[comp - 1] << " " << names[userChoice - 1] << endl;
 	}
 }

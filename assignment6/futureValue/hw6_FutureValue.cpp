@@ -18,7 +18,7 @@ Then displays the account's future value
 
 using namespace std;
 
-double futureValue(int presentValue, double rate, int months); //*** enter parameters ***
+double futureValue(int presentValue, double rate, int months); 
 
 int main()
 {
@@ -39,7 +39,7 @@ int main()
 		cin >> t;
 
 		// Call function futureValue
-		F = futureValue(P, i, t); //<--- ***** Uncomment later ****
+		F = futureValue(P, i, t); 
 
 		// Display result based on calculations
 		cout << "The account's future value is $" << F << "." << endl;
