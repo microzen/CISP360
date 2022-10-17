@@ -23,14 +23,14 @@ int main() {
   // Size of answers
   const char ANSWERSIZE = sizeof(ANSWERS) / sizeof(char);
 
-  // Studnet answers
+  // Student answers
   char studentsAnswers[ANSWERSIZE];
   // Incorrect answers
   int incorrectAnswers[ANSWERSIZE];
   // Size of incorrect answers
   int incorrectSize = 0;
 
-  cout << "Please inter the student's answers for each of the question."
+  cout << "Please enter the student's answers for each of the questions."
        << endl;
   cout << "Press enter after typing each answer." << endl;
   cout << "Please enter only an A, B, C, or D for each question." << endl;
