@@ -53,7 +53,7 @@ int main() {
   } else {
     cout << "\n\nThe student didn't pass the exam." << endl;
   }
-  cout << "\nCorrect Ansers:" << ANSWERSIZE + 1 - incorrectSize << endl;
+  cout << "\nCorrect Ansers:" << ANSWERSIZE - incorrectSize << endl;
 
   if (incorrectSize > 0) { // any incorrect answer
     cout << "Incorrect Answers:" << incorrectSize << endl;
