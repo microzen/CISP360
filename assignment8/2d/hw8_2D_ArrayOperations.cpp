@@ -7,20 +7,22 @@ using namespace std;
 
 #define ROWSIZE 3
 #define COLUMNSIZE 3
+// two-dimensional number array
+typedef int (*TD_NUMARRAY)[COLUMNSIZE];
 
-int getLowestInRow(int numbers[][COLUMNSIZE], int row);
-int getTotal(int numbers[][COLUMNSIZE]);
-double getAverage(int numbers[][COLUMNSIZE]);
-int getRowTotal(int numbers[][COLUMNSIZE], int row);
-int getColumnTotal(int numbers[][COLUMNSIZE], int column);
-int getHighestInRow(int numbers[][COLUMNSIZE], int row);
+int getTotal(TD_NUMARRAY);
+double getAverage(TD_NUMARRAY);
+int getRowTotal(TD_NUMARRAY, int);
+int getColumnTotal(TD_NUMARRAY, int);
+int getHighestInRow(TD_NUMARRAY, int);
+int getLowestInRow(TD_NUMARRAY, int);
 
 int main(int argc, char const *argv[])
 {
     int row, column;
     int numbers[ROWSIZE][COLUMNSIZE];
-    int *index = &numbers[0][0];
-    int *end = &numbers[ROWSIZE - 1][COLUMNSIZE - 1];
+    int *index = *(*(&numbers));
+    int *end = index + (ROWSIZE * COLUMNSIZE) - 1;
     srand(time(NULL));
     do
     {
@@ -36,10 +38,10 @@ int main(int argc, char const *argv[])
 
     cout << "The total of the array element is " << getTotal(numbers) << endl;
     cout << "The average of the array element is " << getAverage(numbers) << endl;
-    cout << "The total of row " << row << " is " << getRowTotal(numbers, row) << endl;
-    cout << "The total of column " << column << " is " << getColumnTotal(numbers, column) << endl;
-    cout << "The highest value in row " << row << " is " << getHighestInRow(numbers, row) << endl;
-    cout << "The lowest value in row" << row << " is " << getLowestInRow(numbers, row) << endl;
+    cout << "The total of row " << row + 1 << " is " << getRowTotal(numbers, row) << endl;
+    cout << "The total of column " << column + 1 << " is " << getColumnTotal(numbers, column) << endl;
+    cout << "The highest value in row " << row + 1 << " is " << getHighestInRow(numbers, row) << endl;
+    cout << "The lowest value in row" << row + 1 << " is " << getLowestInRow(numbers, row) << endl;
 
     return 0;
 }
@@ -88,9 +90,7 @@ int getColumnTotal(int numbers[][COLUMNSIZE], int column)
 {
     int total = 0;
     for (int i = 0; i < ROWSIZE; i++)
-    {
         total += numbers[i][column];
-    }
     return total;
 }
 
@@ -117,12 +117,8 @@ int getHighestInRow(int numbers[][COLUMNSIZE], int row)
 int getLowestInRow(int numbers[][COLUMNSIZE], int row)
 {
     int lowest = INT_MAX;
-    for (int i = 0; i < COLUMNSIZE; i++)
-    {
-        if (numbers[row][i] < lowest)
-        {
-            lowest = numbers[row][i];
-        }
-    }
+    numbers += row;
+    for (int item : *numbers)
+        lowest = item < lowest ? item : lowest;
     return lowest;
 }
