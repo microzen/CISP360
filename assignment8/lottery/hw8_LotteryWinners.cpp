@@ -3,7 +3,7 @@ using namespace std;
 
 #define NUMSIZE 10
 const int NUMBERS[NUMSIZE] = {13579, 26791, 26792, 33445, 55555, 62483, 77777, 79422, 85647, 93121};
-bool isWinByBinarySearch(int);
+bool isWinByLinnerSearch(int);
 int main(int argc, char const *argv[])
 {
     int input;
@@ -20,7 +20,7 @@ int main(int argc, char const *argv[])
     }
     return 0;
 }
-bool isWinByBinarySearch(int item)
+bool isWinByLinnerSearch(int item)
 {
     for (size_t i = 0; i < NUMSIZE; i++)
     {
