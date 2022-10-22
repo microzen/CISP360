@@ -9,7 +9,7 @@ int main(int argc, char const *argv[])
     int input;
     cout << "Please enter this week's 5-digit winning lottery number: ";
     cin >> input;
-    bool isWin = isWinByBinarySearch(input);
+    bool isWin = isWinByLinnerSearch(input);
     if (isWin)
     {
         cout << "You have a winning ticket." << endl;
