@@ -2,6 +2,7 @@ all: main clean
 
 CXX = clang++
 override CXXFLAGS += -g -Wno-everything
+override CXXFLAGS += -std=c++17
 
 # FIND = $(shell cat ./.cisp360project)
 FIND = $(shell cat ./cisp360project.config | grep -v '\#')
