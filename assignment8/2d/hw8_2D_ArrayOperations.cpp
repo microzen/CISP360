@@ -1,3 +1,15 @@
+/*****************************************************
+Student name: Regina Gil, Yezhi Wu
+Student ID: w1468676 , w1761432
+Course #: CISP360
+Section #: 16659
+Instruction mode: Online
+*****************************************************
+Assignment #8 -  2D Array Operations
+Source file name: hw8_2D_ArrayOperations.cpp
+Program description: A program that creates a 
+two-dimensional array initialized with test data. 
+*****************************************************/
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
@@ -36,12 +48,12 @@ int main(int argc, char const *argv[])
     row = rand() % ROWSIZE;
     column = rand() % COLUMNSIZE;
 
-    cout << "The total of the array element is " << getTotal(numbers) << endl;
+    cout << "\nThe total of the array element is " << getTotal(numbers) << endl;
     cout << "The average of the array element is " << getAverage(numbers) << endl;
     cout << "The total of row " << row + 1 << " is " << getRowTotal(numbers, row) << endl;
     cout << "The total of column " << column + 1 << " is " << getColumnTotal(numbers, column) << endl;
     cout << "The highest value in row " << row + 1 << " is " << getHighestInRow(numbers, row) << endl;
-    cout << "The lowest value in row" << row + 1 << " is " << getLowestInRow(numbers, row) << endl;
+    cout << "The lowest value in row " << row + 1 << " is " << getLowestInRow(numbers, row) << endl;
 
     return 0;
 }
@@ -52,8 +64,13 @@ int main(int argc, char const *argv[])
 /// @return the total of all the values in the array
 int getTotal(int numbers[][COLUMNSIZE])
 {
-    // TODO:
-    return 0;
+    int total = 0;
+    for(int i =0; i < 3; i++){
+      for(int j = 0; j < 3; j++){
+        total+=numbers[i][j];
+      }
+    }
+    return total;
 }
 
 /// @brief This function should accept a two-dimensional array as its
@@ -75,8 +92,12 @@ double getAverage(int numbers[][COLUMNSIZE])
 /// @return the total of the values in the specified row
 int getRowTotal(int numbers[][COLUMNSIZE], int row)
 {
-    // TODO:
-    return 0;
+    int rowTotal = 0;
+
+  for (int i = 0; i < COLUMNSIZE; i++){
+    rowTotal += numbers[row][i];
+  }
+    return rowTotal;
 }
 
 /// @brief This function should accept a two-dimensional array as its first
@@ -103,8 +124,13 @@ int getColumnTotal(int numbers[][COLUMNSIZE], int column)
 /// @return the highest value in the specified row of the array
 int getHighestInRow(int numbers[][COLUMNSIZE], int row)
 {
-    // TODO:
-    return 0;
+    int highest = INT_MIN;
+    numbers += row;
+
+    for(int val : *numbers){
+      highest = val > highest ? val : highest;
+    }
+    return highest;
 }
 
 /// @brief This function should accept a two-dimensional array as its first
