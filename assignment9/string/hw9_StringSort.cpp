@@ -1,6 +1,16 @@
-// Modify the selectionSort function presented in this chapter so it sorts an array of
-// strings instead of an array of ints. Test the function with a driver program. Use the
-// following Program 8-8 as a skeleton to complete:
+/*****************************************************
+Student name: Regina Gil, Yezhi Wu
+Student ID: w1468676 , w1761432
+Course #: CISP360
+Section #: 16659
+Instruction mode: Online
+*****************************************************
+Assignment #9 -  String Selection Sort
+Source file name: hw9_StringSort.cpp
+Program description: A program that sorts names 
+with selection sort
+*****************************************************/
+
 #include <iostream>
 #include <string>
 using namespace std;

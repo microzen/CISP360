@@ -1,3 +1,16 @@
+/*****************************************************
+Student name: Regina Gil, Yezhi Wu
+Student ID: w1468676 , w1761432
+Course #: CISP360
+Section #: 16659
+Instruction mode: Online
+*****************************************************
+Assignment #9 -  Sorting Orders
+Source file name: hw9_SortingOrders.cpp
+Program description: A program that sorts with 
+bubble sort and selection sort
+*****************************************************/
+
 #include <iostream>
 #include <iomanip>
 
